@@ -43,8 +43,15 @@ export const App = () => {
   }, []) 
 
   useEffect(() => {
-    console.log("show emergency changed")
-  }, [showEmergencyOnly]) // When the dependency contains multiple state variables, the useEffect is watching for any time any of the values change.
+    if (showEmergencyOnly) {
+      const emergencyTickets = allTickets.filter(
+        (ticket) => ticket.emergency === true
+      )
+      setFilteredTickets(emergencyTickets)
+    } else {
+      setFilteredTickets(allTickets)
+    }
+  }, [showEmergencyOnly, allTickets]) // When the dependency contains multiple state variables, the useEffect is watching for any time any of the values change.
 
   return (
     <div className="tickets-container">
@@ -54,7 +61,7 @@ export const App = () => {
         <button className="filter-btn  btn-info" onClick={()=> {setShowEmergencyOnly(false)}}>Show All</button>
       </div>
       <article className="tickets">
-        {allTickets.map((ticket) => {
+        {filteredTickets.map((ticket) => {
           return (
             <section className="ticket" key={ticket.id}>
             <header className="ticket-info">#{ticket.id}</header>
