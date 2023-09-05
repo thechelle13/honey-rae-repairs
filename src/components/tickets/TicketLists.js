@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react"
 import { getAllTickets } from "../../services/ticketServices.js";
 import './Tickets.css';
+import {Ticket } from "./Ticket.js"
+
 
 
 
 export const TicketLists = () => {
     const [allTickets, setAllTickets] = useState([])
-  const [showEmergencyOnly, setShowEmergencyOnly] = useState(false)
-  const [filteredTickets, setFilteredTickets] = useState([])
+    const [showEmergencyOnly, setShowEmergencyOnly] = useState(false)
+    const [filteredTickets, setFilteredTickets] = useState([])
 
   // useEffect to fetch tickets and set to allTickets on initial render
 
@@ -37,19 +39,9 @@ export const TicketLists = () => {
         <button className="filter-btn  btn-info" onClick={()=> {setShowEmergencyOnly(false)}}>Show All</button>
       </div>
       <article className="tickets">
-        {filteredTickets.map((ticket) => {
-          return (
-            <section className="ticket" key={ticket.id}>
-            <header className="ticket-info">#{ticket.id}</header>
-            <div>{ticket.description}</div>
-            <footer>
-              <div>
-                <div className="ticket-info">emergency</div>
-                <div>{ticket.emergency ? "yes" : "no"}</div>
-              </div>
-            </footer>
-            </section>
-          )
+        {filteredTickets.map((ticketObj) => {
+          return <Ticket ticket={ticketObj}/>
+          
         })}
         </article>
         </div>
