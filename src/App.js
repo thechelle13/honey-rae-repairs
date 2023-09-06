@@ -25,11 +25,13 @@
 // }
 
 import "./App.css"
+import { CustomerList } from "./components/customers/CustomerList"
 import { TicketLists } from "./components/tickets/TicketLists"
 
 
 export const App = () => {
   return <>
-  <TicketLists />
+  {/* <TicketLists /> */}
+  {/* <CustomerList /> */}
   </>
 }
