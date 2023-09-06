@@ -26,12 +26,30 @@
 
 import "./App.css"
 import { CustomerList } from "./components/customers/CustomerList"
+import { EmployeeList } from "./components/employees/EmployeeList"
+import { NavBar } from "./components/nav/NavBar"
 import { TicketLists } from "./components/tickets/TicketLists"
+import { Routes, Route, Outlet} from "react-router-dom"
 
 
 export const App = () => {
-  return <>
-  {/* <TicketLists /> */}
-  {/* <CustomerList /> */}
-  </>
+  return (
+    <Routes>
+      <Route 
+      path="/" 
+      element={
+        <>
+        <NavBar />
+        <Outlet />
+        </>
+      }
+      >
+      <Route path="tickets" element={<TicketLists /> }/>
+      <Route path="customers" element={<CustomerList /> }/>
+          {/* <TicketLists /> */}
+          {/* <CustomerList /> */}
+          {/* <EmployeeList /> */}
+      </Route>
+    </Routes>
+  )
 }

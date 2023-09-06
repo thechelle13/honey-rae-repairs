@@ -3,4 +3,7 @@ import "./Customers.css"
 
 export const CustomerDetails = () => {
     
+    useEffect(() => {}, [])
+
+    
 }
