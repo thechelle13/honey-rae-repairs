@@ -26,6 +26,7 @@
 
 import "./App.css"
 import { CustomerList } from "./components/customers/CustomerList"
+import { EmployeeDetails } from "./components/employees/EmployeeDetails"
 import { EmployeeList } from "./components/employees/EmployeeList"
 import { NavBar } from "./components/nav/NavBar"
 import { TicketLists } from "./components/tickets/TicketLists"
@@ -45,7 +46,10 @@ export const App = () => {
       }
       >
       <Route path="tickets" element={<TicketLists /> }/>
-      <Route path="employees" element={<EmployeeList /> }/>
+      <Route path="employees">
+        <Route index element={<EmployeeList />} />
+        <Route path=":employeeId" element={<EmployeeDetails />} />
+      </Route>
       <Route path="customers">
         <Route index element={<CustomerList />} />
         <Route path=":customerId" element={<>Customer Details</>}/>
