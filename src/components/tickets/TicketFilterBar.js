@@ -1,12 +1,16 @@
-export const TicketFilterBar = ({setShowEmergencyOnly, setSearchTerm}) => {
+export const TicketFilterBar = ({setShowEmergencyOnly, setNonEmergency, setSearchTerm}) => {
     return (
         <div className="filter-btn">
             <button className="filter-btn btn-primary" 
-                onClick={()=> {setShowEmergencyOnly(true)}}
+                onClick={()=> {setShowEmergencyOnly(true); setNonEmergency(false)}}
                 >Emergency
             </button>
+            <button className="filter-btn btn-secondary" 
+                onClick={()=> {setShowEmergencyOnly(false); setNonEmergency(true)}}
+                >Non Emergency
+            </button>
             <button className="filter-btn  btn-info" 
-                onClick={()=> {setShowEmergencyOnly(false)}}
+                onClick={()=> {setShowEmergencyOnly(false); setNonEmergency(false)}}
                 >Show All
             </button>
             <input 

@@ -9,7 +9,7 @@ export const TicketLists = () => {
     const [showEmergencyOnly, setShowEmergencyOnly] = useState([])
     const [nonEmergency, setNonEmergency] = useState([false])
     const [filteredTickets, setFilteredTickets] = useState([])
-    const [searchTerm, setSearchTerm] = useState([])
+    const [searchTerm, setSearchTerm] = useState("")
 
   // useEffect to fetch tickets and set to allTickets on initial render
 
@@ -35,11 +35,11 @@ export const TicketLists = () => {
      else {
       setFilteredTickets(allTickets)
     }
-  }, [showEmergencyOnly, nonEmergency, allTickets]) // When the dependency contains multiple state variables, the useEffect is watching for any time any of the values change.
+  }, [showEmergencyOnly, nonEmergency, allTickets]); // When the dependency contains multiple state variables, the useEffect is watching for any time any of the values change.
 
   useEffect(() => {
     const foundTickets = allTickets.filter((ticket) =>
-      ticket.description.toLowerCase().includes(searchTerm.toLocaleLowerCase())
+      ticket.description.toLowerCase().includes(searchTerm.toLowerCase())
     )
     setFilteredTickets(foundTickets)
   }, [searchTerm, allTickets])

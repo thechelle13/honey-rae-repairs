@@ -1,28 +1,35 @@
 import { useState, useEffect } from "react";
 import "./Customers.css"
+import { getCustomerByUserId } from "../../services/customerService";
 
 export const CustomerDetails = () => {
-    const [] = useState([])
+    const [customer, setCustomer] = useState([])
+    const {customerId} = useState([])
     
-    useEffect(() => {}, [])
+    useEffect(() => {
+        getCustomerByUserId(customerId).then( (customerInfo)=> {
+            const customerObj = customerInfo[0]
+            setCustomer(customerObj)
+        })
+    }
+    , [customerId])
 
     return (
-        <section className="customers">
-            <header className="customer-header"></header>
+        <section className="customer">
+            <header className="customer-header">{customer.user?.fullName}</header>
             <div>
-                <span className="customer-info"></span>
+                <span className="customer-info">Email</span>
                 {customer.user?.email}
             </div>
             <div>
-                <span className="customer-info"></span>
-                {customer.specialty}
+                <span className="customer-info">Address</span>
+                {customer.address}
             </div>
             <div>
-                <span className="customer-info"></span>
-                {customer.rate}
+                <span className="customer-info">Phone Number</span>
+                {customer.phoneNumber}
             </div>
-            <footer className="customer-footer">{employee.employeeTickets?.length}
-            </footer>
+            
         </section>
     )
 }
