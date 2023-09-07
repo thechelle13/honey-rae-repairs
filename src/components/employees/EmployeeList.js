@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import "./Employees.css"
 import { Link } from "react-router-dom";
 import { User } from "../users/User";
+import { getAllEmployees } from "../../services/employeeService";
 
 export const EmployeeList = () => {
     const [employees, setEmployees] = useState([])
 
     useEffect(() => {
-
+        getAllEmployees().then((employeeObj) => {
+            setEmployees(employeeObj)
+        })
 
 }
 ,[])

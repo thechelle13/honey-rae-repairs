@@ -20,7 +20,7 @@ export const Ticket = (ticket) => {
     // )
 
     return (
-        <section className="ticket" >
+        <section className="ticket">
             <header className="ticket-info">#{ticket.id}</header>
             <div>{ticket.description}</div>
             <footer>

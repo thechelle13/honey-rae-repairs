@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "./Customers.css"
 import { getCustomerByUserId } from "../../services/customerService";
+import { useParams } from "react-router-dom";
 
 export const CustomerDetails = () => {
     const [customer, setCustomer] = useState([])
-    const {customerId} = useState([])
+    const {customerId} = useParams([])
     
     useEffect(() => {
         getCustomerByUserId(customerId).then( (customerInfo)=> {

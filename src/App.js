@@ -25,6 +25,7 @@
 // }
 
 import "./App.css"
+import { CustomerDetails } from "./components/customers/CustomerDetails"
 import { CustomerList } from "./components/customers/CustomerList"
 import { EmployeeDetails } from "./components/employees/EmployeeDetails"
 import { EmployeeList } from "./components/employees/EmployeeList"
@@ -52,7 +53,7 @@ export const App = () => {
       </Route>
       <Route path="customers">
         <Route index element={<CustomerList />} />
-        <Route path=":customerId" element={<>Customer Details</>}/>
+        <Route path=":customerId" element={<CustomerDetails/>}/>
       </Route>
           {/* <TicketLists /> */}
           {/* <CustomerList /> */}
