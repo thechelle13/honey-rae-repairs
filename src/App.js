@@ -45,7 +45,11 @@ export const App = () => {
       }
       >
       <Route path="tickets" element={<TicketLists /> }/>
-      <Route path="customers" element={<CustomerList /> }/>
+      <Route path="employees" element={<EmployeeList /> }/>
+      <Route path="customers">
+        <Route index element={<CustomerList />} />
+        <Route path=":customerId" element={<>Customer Details</>}/>
+      </Route>
           {/* <TicketLists /> */}
           {/* <CustomerList /> */}
           {/* <EmployeeList /> */}
