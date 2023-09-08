@@ -3,3 +3,5 @@ export const getNonStaffUsers = () => {
     res.json()
     )
 }
+
+//Add function to userService to get staff users

@@ -32,6 +32,7 @@ import { EmployeeList } from "./components/employees/EmployeeList"
 import { NavBar } from "./components/nav/NavBar"
 import { TicketLists } from "./components/tickets/TicketLists"
 import { Routes, Route, Outlet} from "react-router-dom"
+import { Welcome } from "./components/welcome/Welcome"
 
 
 export const App = () => {
@@ -42,10 +43,12 @@ export const App = () => {
       element={
         <>
         <NavBar />
+       
         <Outlet />
         </>
       }
       >
+        <Route index element={<Welcome/>}/>
       <Route path="tickets" element={<TicketLists /> }/>
       <Route path="employees">
         <Route index element={<EmployeeList />} />
