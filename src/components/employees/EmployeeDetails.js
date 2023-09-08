@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 export const EmployeeDetails = () => {
     const { employeeId } = useParams()
-    const[employee, setEmployee] =useState([])
+    const[employee, setEmployee] = useState([])
 
     useEffect(()=> {
         getEmployeeByUserId(employeeId).then((data) => {
